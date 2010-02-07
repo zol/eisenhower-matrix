@@ -1,0 +1,28 @@
+<p>
+  <b>Title:</b>
+  <%=h @task.title %>
+</p>
+
+<p>
+  <b>Star:</b>
+  <%=h @task.star %>
+</p>
+
+<p>
+  <b>Importance:</b>
+  <%=h @task.importance %>
+</p>
+
+<p>
+  <b>Urgency:</b>
+  <%=h @task.urgency %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @task.position %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

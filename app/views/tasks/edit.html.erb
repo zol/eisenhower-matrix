@@ -1,0 +1,32 @@
+<h1>Editing task</h1>
+
+<% form_for(@task) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :star %><br />
+    <%= f.check_box :star %>
+  </p>
+  <p>
+    <%= f.label :importance %><br />
+    <%= f.text_field :importance %>
+  </p>
+  <p>
+    <%= f.label :urgency %><br />
+    <%= f.text_field :urgency %>
+  </p>
+  <p>
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @task %> |
+<%= link_to 'Back', tasks_path %>
