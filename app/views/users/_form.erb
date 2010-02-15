@@ -1,14 +1,13 @@
-<%= form.label :email %><br />
-<%= form.text_field :email %><br />
-<br />
+<%= form.label :email %>
+<%= form.text_field :email %>
+
 <% if form.object.new_record? %>
-  <%= form.label :invitation_code %><br />
-  <%= form.text_field :invitation_code %><br />  
+  <%= form.label :invitation_code %>
+  <%= form.text_field :invitation_code %>
 <% end %>
-<br />
-<%= form.label :password, form.object.new_record? ? nil : "Change password" %><br />
-<%= form.password_field :password %><br />
-<br />
-<%= form.label :password_confirmation %><br />
-<%= form.password_field :password_confirmation %><br />
-<br />
+
+<%= form.label :password, form.object.new_record? ? nil : "Change password" %>
+<%= form.password_field :password %>
+
+<%= form.label :password_confirmation %>
+<%= form.password_field :password_confirmation %>

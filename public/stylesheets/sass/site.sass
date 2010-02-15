@@ -1,0 +1,74 @@
+#header
+  :height 40px
+  :padding 10px  
+
+#logo
+  :float left
+  span
+    :font-size = 60px
+    :text-transform uppercase
+    :letter-spacing -4px
+    :font-family Helvetica, Arial, sans-serif
+
+#nav
+  :float right
+  a.current
+    :text-decoration none
+    :color #CBCCCD
+  
+#flash, #error
+  :margin-left 160px
+  
+#flash
+  :color green
+  
+#error
+  :color red
+  
+div.clearboth
+  :clear both
+
+#errorExplanation
+  :width 224px
+  :border 2px solid red
+  :padding 5px
+  :margin-bottom 10px
+  :background-color #f0f0f0
+  li
+    :list-style-type disc  
+    :list-style-position inside
+    :padding-left 10px
+  
+.fieldWithErrors
+  label
+    :color red
+  input[type=text], input[type=password]
+    :background-color #FFD6DF
+    
+a.shout
+  :display inline-block
+  :position absolute
+  :top 194px
+  :left 360px
+  :font-size 40px
+  
+#new_user_session, #new_user, #edit_user
+  :background-color #CBCCCD
+  :-moz-box-shadow 5px 5px 5px #888
+  :-webkit-box-shadow 5px 5px 5px #888  
+  :width 240px
+  :margin 50px
+  :padding 10px
+  input[type=text], input[type=password]
+    :width 234px
+  input[type=checkbox]
+    :margin-right 5px
+  input[type=text], input[type=password], div.checkbox_container
+    :display block
+    :margin-bottom 10px
+  label
+    :display block
+    :margin-bottom 2px
+  div.checkbox_container
+    label
+      :display inline

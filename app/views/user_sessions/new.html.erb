@@ -1,14 +1,19 @@
-<h1>Login</h1>
+<%= link_to "or Create Account", new_account_path, :class => 'shout' %>
 
 <% form_for @user_session, :url => user_session_path do |f| %>
-  <%= f.error_messages %>
-  <%= f.label :email %><br />
-  <%= f.text_field :email %><br />
-  <br />
-  <%= f.label :password %><br />
-  <%= f.password_field :password %><br />
-  <br />
-  <%= f.check_box :remember_me %><%= f.label :remember_me %><br />
-  <br />
+  <h1>Sign In</h1>
+  
+  <%= f.error_messages :header_message => nil %>
+  
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <div class='checkbox_container'>
+    <%= f.check_box :remember_me %><%= f.label :remember_me %>
+  </div>
+
   <%= f.submit "Login" %>
 <% end %>

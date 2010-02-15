@@ -1,7 +1,9 @@
-<h1>Register</h1>
+<%= link_to "or Sign In", new_user_session_path, :class => 'shout' %>
 
 <% form_for @user, :url => account_path do |f| %>
-  <%= f.error_messages %>
+  <h1>Create Account</h1>
+  
+  <%= f.error_messages :header_message => nil %>
   <%= render :partial => "form", :object => f %>
   <%= f.submit "Register" %>
 <% end %>
