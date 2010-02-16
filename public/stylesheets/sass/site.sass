@@ -1,6 +1,13 @@
+body
+  :padding 0 30px 0 30px
+
 #header
-  :height 40px
-  :padding 10px  
+  :height 64px
+  :padding-top 10px
+  :margin 0 -20px 0 -20px
+
+#footer
+  :height 30px
 
 #logo
   :float left
@@ -53,9 +60,8 @@ a.shout
   :font-size 40px
   
 #new_user_session, #new_user, #edit_user
+  +shadow()
   :background-color #CBCCCD
-  :-moz-box-shadow 5px 5px 5px #888
-  :-webkit-box-shadow 5px 5px 5px #888  
   :width 240px
   :margin 50px
   :padding 10px
@@ -72,3 +78,53 @@ a.shout
   div.checkbox_container
     label
       :display inline
+      
+body.c_tasks.v_index
+  :overflow-x hidden
+  :overflow-y hidden
+  #content
+    +shadow()
+    :border-left 1px solid black
+    :border-bottom 1px solid black
+  
+div.quadrant
+  :position relative
+  :height 100px
+  :width 50%
+  ol
+    li
+      :background-color rgb(230, 230, 230)
+      :border 1px solid rgb(150, 150, 150)
+      :color rgb(85, 85, 85)
+      :margin 5px 5px 5px 5px
+      :padding 5px
+
+#i1_u0.quadrant
+  :float left
+  :background-color #FFE6A3
+  div.arrowhead
+    :position absolute
+    :left -12px
+    :width 11px
+    :height 109px
+    :background url(/images/top_arrowhead.gif) no-repeat 0 0    
+
+#i1_u1.quadrant
+  :float right
+  :background-color #A50C0F
+  
+#i0_u0.quadrant
+  :float left
+  :background-color #E4481F
+  
+#i0_u1.quadrant
+  :float right
+  :background-color #F89C47
+  div.arrowhead
+    :position absolute
+    :right 0
+    :bottom -12px
+    :width 109px
+    :height 11px
+    :background url(/images/right_arrowhead.gif) no-repeat 0 0    
+  
