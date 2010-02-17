@@ -1,0 +1,22 @@
+<%= form.error_messages %>
+
+<p>
+  <%= form.label :title %><br />
+  <%= form.text_field :title %>
+</p>
+<!-- <p>
+  <%= form.label :star %><br />
+  <%= form.check_box :star %>
+</p>
+<p>
+  <%= form.label :importance %><br />
+  <%= form.text_field :importance %>
+</p>
+<p>
+  <%= form.label :urgency %><br />
+  <%= form.text_field :urgency %>
+</p> -->
+<p>
+  <%= form.submit 'Create' %>
+</p>
+<%= loader_tag %>

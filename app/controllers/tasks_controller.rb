@@ -46,12 +46,20 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        flash[:notice] = 'Task was successfully created.'
-        format.html { redirect_to(@task) }
-        format.xml  { render :xml => @task, :status => :created, :location => @task }
+        if request.xhr?
+          return render :partial => 'task', :object => @task
+        else
+          flash[:notice] = 'Task was successfully created.'
+          format.html { redirect_to(@task) }
+          format.xml  { render :xml => @task, :status => :created, :location => @task }
+        end
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
+        if request.xhr?
+          return render :action => 'new', :layout => false, :status => :unprocessable_entity
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }          
+        end        
       end
     end
   end

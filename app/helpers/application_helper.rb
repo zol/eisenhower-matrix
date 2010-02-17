@@ -30,4 +30,8 @@ module ApplicationHelper
     (controller.controller_name == c and 
       controller.action_name == a) ? 'current' : ''
   end
+  
+  def loader_tag
+    image_tag 'loader.gif', :id => 'loader'
+  end
 end

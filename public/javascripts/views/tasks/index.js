@@ -8,6 +8,10 @@
         connectWith: '.sortable',
         cursor: 'crosshair'
       }).disableSelection();
+      
+      $('#new_task').ajaxForm({success: function(d, s, form){
+        alert(d);
+      }});      
     },
     updateQuadrantHeights: function() {
       var windowHeight = $(window).height();

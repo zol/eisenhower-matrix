@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
   acts_as_list :scope => 'user_id = #{user_id} AND importance = #{importance} AND urgency = #{urgency}'
   
   validates_presence_of :title, :user
-  validates_length_of :title, :in => 1..80
+  validates_length_of :title, :in => 0..80
   validates_numericality_of :importance, 
                             :greater_than_or_equal_to => 0, 
                             :less_than_or_equal_to => 1, 

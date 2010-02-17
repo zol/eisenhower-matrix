@@ -29,7 +29,7 @@
   
   // do a few things that we think are a good idea on all pages:
   //   focus the first element of the last form
-  //   hook the spinners up to load on all ajax
+  //   hook the loaders up to load on all ajax
   //   make sure attach_widgets gets called whenever an ajax page loads
   function misc_setup() {
     // focus the first input of the last form on the page
