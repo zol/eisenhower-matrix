@@ -89,8 +89,12 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to(tasks_url) }
-      format.xml  { head :ok }
+      if request.xhr?
+        return head :ok
+      else
+        format.html { redirect_to(tasks_url) }
+        format.xml  { head :ok }
+      end
     end
   end
 end
