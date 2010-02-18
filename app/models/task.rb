@@ -12,4 +12,6 @@ class Task < ActiveRecord::Base
                             :greater_than_or_equal_to => 0, 
                             :less_than_or_equal_to => 1, 
                             :only_integer => true
+                            
+  after_create :move_to_top
 end

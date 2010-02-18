@@ -1,9 +1,7 @@
 <%= form.error_messages %>
 
-<p>
-  <%= form.label :title %><br />
-  <%= form.text_field :title %>
-</p>
+<%= form.label :title %>
+<%= form.text_field :title %>
 <!-- <p>
   <%= form.label :star %><br />
   <%= form.check_box :star %>
@@ -16,7 +14,6 @@
   <%= form.label :urgency %><br />
   <%= form.text_field :urgency %>
 </p> -->
-<p>
-  <%= form.submit 'Create' %>
-</p>
+
+<%= form.submit 'Create' %>
 <%= loader_tag %>

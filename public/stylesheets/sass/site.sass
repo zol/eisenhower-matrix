@@ -66,7 +66,7 @@ a.shout
   :left 360px
   :font-size 40px
   
-#new_user_session, #new_user, #edit_user
+#new_user_session, #new_user, #edit_user, #new_task
   +shadow()
   :background-color #CBCCCD
   :width 240px
@@ -91,8 +91,29 @@ body.c_tasks.v_index
   :overflow-y hidden
   #content
     +shadow()
-    :border-left 1px solid black
-    :border-bottom 1px solid black
+  #new_task
+    +shadow()  
+    :position absolute
+    :margin 0px
+    :width 460px
+    :top 10px
+    :left 200px
+    label[for=task_title]
+      :display none
+    input[type=text]
+      :float left
+      :margin 0px
+    input[type=submit]
+      :display block
+      :float right      
+    .errorExplanation
+      :display none
+    #loader
+      :display block
+      :float right
+      :margin 5px
+//    :border-left 1px solid black
+//    :border-bottom 1px solid black
   
 div.quadrant
   :position relative

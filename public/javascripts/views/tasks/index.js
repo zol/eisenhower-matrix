@@ -9,8 +9,18 @@
         cursor: 'crosshair'
       }).disableSelection();
       
+      var emptyFormHTML = $('#new_task').html();
+      
       $('#new_task').ajaxForm({success: function(d, s, form){
-        alert(d);
+        var importance = $(d).attr('data-importance');
+        var urgency = $(d).attr('data-urgency');
+        
+        // add it to the correct quadrant (eg '#u1_i1 ol')
+        var selector = '#i' + importance + '_u' + urgency + ' ol';
+        $(selector).prepend(d);
+        
+        // reset the form
+        $('#new_task').html(emptyFormHTML);
       }});      
     },
     updateQuadrantHeights: function() {
