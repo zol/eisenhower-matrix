@@ -8,7 +8,11 @@
       // make quadrants sortable
       $(".sortable").sortable({
         connectWith: '.sortable',
-        cursor: 'crosshair'
+        cursor: 'crosshair',
+        update: function(event, ui) {
+          if (ui.sender == null) // ensure we only fire once
+            tasksIndex.taskPositionChanged($(ui.item), $(ui.item).parent());
+        }
       }).disableSelection();
       
       // ajaxifize the form
@@ -18,8 +22,8 @@
         
         // add it to the correct quadrant (eg '#u1_i1 ol')
         var selector = '#i' + importance + '_u' + urgency + ' ol';
-        // $(d).hide();
-        $(selector).prepend(d);//.find(d).hide().fadeIn('slow');
+        $(selector).prepend(d);        
+        $(selector + ' li:first').hide().fadeIn('slow'); // fade the fucker in
         
         // reset the form
         // $('#new_task').html(emptyFormHTML);
@@ -44,6 +48,22 @@
       $('#content').height(contentHeight);
       $('.quadrant').height(quadrantHeight);
       $('.quadrant ol').height(quadrantHeight); //also size the lists
+    },
+    taskPositionChanged: function(task, list) {
+      // calculate new item parameters
+      var id = $(task).attr('data-id');
+      
+      var task = {
+        task: {
+          importance: $.fn.fw.getImportance($(list).parent().attr('id')),
+          urgency: $.fn.fw.getUrgency($(list).parent().attr('id')),
+          new_position: $(list).sortable('toArray').indexOf('task_' + id) + 1          
+        }
+      };
+      
+      // alert($.param(task));
+      
+      $.ajax({type: "PUT", url: "/tasks/" + id, data: task});
     }
   }
 }(jQuery));

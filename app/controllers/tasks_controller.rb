@@ -72,12 +72,20 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        flash[:notice] = 'Task was successfully updated.'
-        format.html { redirect_to(@task) }
-        format.xml  { head :ok }
+        if request.xhr?
+          format.xml  { head :ok }          
+        else        
+          flash[:notice] = 'Task was successfully updated.'
+          format.html { redirect_to(@task) }
+          format.xml  { head :ok }
+        end
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
+        if request.xhr?
+          format.xml  { head :unprocessable_entity }          
+        else                
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
+        end
       end
     end
   end

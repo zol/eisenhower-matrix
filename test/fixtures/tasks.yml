@@ -1,15 +1,55 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+apple1:
+  title: Apple1
+  user: zol
+  star: false  
+  position: 1
+  importance: 1
+  urgency: 0  
 
-one:
-  title: MyString
-  star: false
+apple2:
+  title: Apple2
+  user: zol
+  star: false  
+  position: 2
+  importance: 1
+  urgency: 0  
+
+apple3:
+  title: Apple3
+  user: zol
+  star: false  
+  position: 3
+  importance: 1
+  urgency: 0  
+  
+banana1:
+  title: Banana1
+  user: zol  
+  star: false  
+  position: 1  
   importance: 1
   urgency: 1
-  position: 1
 
-two:
-  title: MyString
-  star: false
+banana2:
+  title: Banana2
+  user: zol  
+  star: false  
+  position: 2
   importance: 1
   urgency: 1
-  position: 1
+
+carrot1:
+  title: Carrot1
+  user: zol  
+  star: false  
+  position: 1  
+  importance: 0
+  urgency: 0  
+  
+durian1:
+  title: Durian1
+  user: zol  
+  star: false  
+  position: 1  
+  importance: 0
+  urgency: 1
