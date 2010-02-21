@@ -28,7 +28,7 @@
       }});
       
       // add handler for delete. fade it out then remove it on server
-      $('.quadrant li .delete').click(function(){
+      $('.quadrant li .delete').live('click', function(){
         $(this).parent().fadeOut('slow', function(){ $(this).remove(); });
         $.ajax({type: "DELETE", url: "/tasks/" + $(this).parent().attr('data-id')});
       });

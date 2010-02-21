@@ -1,3 +1,13 @@
+!form_color = #CBCCCD
+
+!hover_diff = #505050
+
+// quadrant colors
+!i1_u0_color = #FFE6A3
+!i1_u1_color = #A50C0F
+!i0_u0_color = #E4481F
+!i0_u1_color = #F89C47
+
 body
   :padding 0 30px 0 30px
   
@@ -17,7 +27,8 @@ body
 #logo
   :float left
   span
-    :font-size = 60px
+    :font-size 60px
+    :line-height 50px
     :text-transform uppercase
     :letter-spacing -4px
     :font-family Helvetica, Arial, sans-serif
@@ -26,7 +37,7 @@ body
   :float right
   a.current
     :text-decoration none
-    :color #CBCCCD
+    :color = !form_color
   
 #flash, #error
   :float right
@@ -68,7 +79,7 @@ a.shout
   
 #new_user_session, #new_user, #edit_user, #new_task
   +shadow()
-  :background-color #CBCCCD
+  :background-color = !form_color
   :width 240px
   :margin 50px
   :padding 10px
@@ -100,6 +111,9 @@ body.c_tasks.v_index
     :left 200px
     label[for=task_title]
       :display none
+    .quadrant_chooser
+      :float left
+      :margin-right 10px
     input[type=text]
       :float left
       :margin 0px
@@ -122,15 +136,17 @@ div.quadrant
   ol
     :overflow-y auto
     li
-      :background-color rgb(230, 230, 230)
+      :background-color = !form_color
       :border 1px solid rgb(150, 150, 150)
       :color rgb(85, 85, 85)
       :margin 5px 5px 5px 5px
       :padding 5px
+      &:hover
+        :background-color = #82c7e7
 
 #i1_u0.quadrant
   :float left
-  :background-color #FFE6A3
+  :background-color = !i1_u0_color
   div.arrowhead
     :visibility hidden
     :position absolute
@@ -141,15 +157,15 @@ div.quadrant
 
 #i1_u1.quadrant
   :float right
-  :background-color #A50C0F
+  :background-color = !i1_u1_color
   
 #i0_u0.quadrant
   :float left
-  :background-color #E4481F
+  :background-color = !i0_u0_color
   
 #i0_u1.quadrant
   :float right
-  :background-color #F89C47
+  :background-color = !i0_u1_color
   div.arrowhead
     :visibility hidden  
     :position absolute
@@ -158,4 +174,40 @@ div.quadrant
     :width 109px
     :height 11px
     :background url(/images/right_arrowhead.gif) no-repeat 0 0    
-  
+    
+!quadrant_chooser_square_length = 12px
+    
+.quadrant_chooser
+  :position relative
+  :height = !quadrant_chooser_square_length * 2
+  :width = !quadrant_chooser_square_length * 2
+  div
+    :position absolute
+    :height = !quadrant_chooser_square_length
+    :width = !quadrant_chooser_square_length
+    &.selected
+      +glow()
+  .i1_u0
+    :background-color = !i1_u0_color
+    &:hover
+      :background-color = !i1_u0_color - !hover_diff
+    :top 0
+    :left 0
+  .i1_u1
+    :background-color = !i1_u1_color
+    &:hover
+      :background-color = !i1_u1_color - !hover_diff    
+    :top 0
+    :right 0    
+  .i0_u0  
+    :background-color = !i0_u0_color
+    &:hover
+      :background-color = !i0_u0_color - !hover_diff    
+    :bottom 0
+    :left 0    
+  .i0_u1  
+    :background-color = !i0_u1_color
+    &:hover
+      :background-color = !i0_u1_color - !hover_diff
+    :bottom 0
+    :right 0

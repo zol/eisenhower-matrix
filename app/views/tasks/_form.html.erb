@@ -1,19 +1,17 @@
 <%= form.error_messages %>
 
+<%= render :partial => '/shared/quadrant_chooser'%>
+
+<%= form.hidden_field :importance %>
+<%= form.hidden_field :urgency %>
+  
 <%= form.label :title %>
 <%= form.text_field :title, :autocomplete => "off" %>
+
 <!-- <p>
   <%= form.label :star %><br />
   <%= form.check_box :star %>
-</p>
-<p>
-  <%= form.label :importance %><br />
-  <%= form.text_field :importance %>
-</p>
-<p>
-  <%= form.label :urgency %><br />
-  <%= form.text_field :urgency %>
-</p> -->
+</p>-->
 
 <%= form.submit 'Create' %>
 <%= loader_tag %>
