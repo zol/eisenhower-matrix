@@ -39,11 +39,11 @@
     //multiple submits(this will only work on non-ajax forms) 
     //legacy form elements can set the class do_not_disable_on_submit to not 
     //have this code applied
-    $('form:not(.do_not_disable_on_submit)').submit(function(){
-      $(this).find('input[type=image],input[type=submit]').click(function(){
-        return false;
-      });
-    });
+    // $('form:not(.do_not_disable_on_submit)').submit(function(){
+    //   $(this).find('input[type=image],input[type=submit]').click(function(){
+    //     return false;
+    //   });
+    // });
         
     // hook the spinner up
     $('#loader').bind('ajaxStart', function() {
