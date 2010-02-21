@@ -57,7 +57,7 @@
         task: {
           importance: $.fn.fw.getImportance($(list).parent().attr('id')),
           urgency: $.fn.fw.getUrgency($(list).parent().attr('id')),
-          new_position: $(list).sortable('toArray').indexOf('task_' + id) + 1          
+          position: $(list).sortable('toArray').indexOf('task_' + id) + 1          
         }
       };
       

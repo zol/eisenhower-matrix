@@ -1,3 +1,5 @@
+$: << File.join(File.dirname(__FILE__), '..')
+
 require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
@@ -7,11 +9,11 @@ class TaskTest < ActiveSupport::TestCase
   
   test "reposition_within_quadrant" do
     t = tasks(:apple2)
-    t.new_position = 1
+    t.position = 1
     t.save
     
+    check_task tasks(:apple2), 1, 1, 0 #<- we moved it to pos 1  
     check_task tasks(:apple1), 2, 1, 0
-    check_task tasks(:apple2), 1, 1, 0 #<- we moved it to pos 1
     check_task tasks(:apple3), 3, 1, 0
     
     check_bananas
@@ -19,9 +21,9 @@ class TaskTest < ActiveSupport::TestCase
     check_durians
   end
   
-  test "reposition_between_quadrants" do
+  test "reposition_between_quadrants1" do
     t = tasks(:apple2) # move it to the bananas
-    t.new_position = 2
+    t.position = 2
     t.importance = 1
     t.urgency = 1    
     t.save
@@ -33,6 +35,30 @@ class TaskTest < ActiveSupport::TestCase
     check_task tasks(:apple1), 1, 1, 0
     # apple 2 is missing from here
     check_task tasks(:apple3), 2, 1, 0
+    
+    check_carrots
+    check_durians
+  end
+
+  test "reposition_between_quadrants2" do
+    # move all bananas to the end of apples
+    t = tasks(:banana1) 
+    t.position = 4
+    t.importance = 1
+    t.urgency = 0
+    t.save
+    
+    t = tasks(:banana2) 
+    t.position = 5
+    t.importance = 1
+    t.urgency = 0
+    t.save    
+
+    check_task tasks(:apple1), 1, 1, 0
+    check_task tasks(:apple2), 2, 1, 0
+    check_task tasks(:apple3), 3, 1, 0
+    check_task tasks(:banana1), 4, 1, 0
+    check_task tasks(:banana2), 5, 1, 0
     
     check_carrots
     check_durians

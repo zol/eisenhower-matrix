@@ -14,35 +14,21 @@ class Task < ActiveRecord::Base
                             :only_integer => true
                             
   after_create :move_to_top
-  before_save :reposition
+  before_save :adjust_quadrants
 
-  # this will trigger the repositioning
-  def new_position=(num)
-    @new_position = num
-  end
-  
 protected
   
-  def reposition
-    if @new_position and not @repositioning
-      @repositioning = true # avoid endless loop
-
-      quadrants_changed = true if importance_changed? or urgency_changed?
-      old_importance = importance_was
-      old_urgency = urgency_was
-      old_position = position
+  def adjust_quadrants
+    if importance_changed? or urgency_changed? or position_changed?
+      # 1. Close gap in original list        
+      Task.update_all("position = (position - 1)", 
+        "user_id = #{user_id} AND importance = #{importance_was} AND " + "
+        urgency = #{urgency_was} AND position > #{position_was.to_i}")    
       
-      # always update the position first. this will update all the other tasks
-      # in this task's quadrant
-      insert_at(@new_position)
-      
-      # next if the quadrants have changed, ensure the hole in the quadrant 
-      # the task came from is fixed, if it exists
-      if quadrants_changed
-        Task.update_all("position = (position - 1)", 
-          "user_id = #{user_id} AND importance = #{old_importance} AND " + "
-          urgency = #{old_urgency} AND position > #{old_position.to_i}")
-      end
+      # 2. Make room in destination list
+      Task.update_all("position = (position + 1)", 
+        "user_id = #{user_id} AND importance = #{importance} AND " + "
+        urgency = #{urgency} AND position >= #{position.to_i}")    
     end
-  end  
+  end
 end
