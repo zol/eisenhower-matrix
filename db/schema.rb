@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20100207061653) do
     t.boolean  "star",       :default => false, :null => false
     t.integer  "importance", :default => 1,     :null => false
     t.integer  "urgency",    :default => 1,     :null => false
-    t.integer  "position",                      :null => false
+    t.integer  "position",   :default => 1,     :null => false
     t.integer  "user_id",                       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"

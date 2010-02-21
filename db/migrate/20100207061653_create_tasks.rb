@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.boolean :star, :default => false, :null => false
       t.integer :importance, :default => 1, :null => false
       t.integer :urgency, :default => 1, :null => false
-      t.integer :position, :null => false
+      t.integer :position, :null => false, :default => 1
       t.integer :user_id, :null => false
 
       t.timestamps

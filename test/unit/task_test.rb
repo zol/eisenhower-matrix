@@ -39,6 +39,29 @@ class TaskTest < ActiveSupport::TestCase
     check_carrots
     check_durians
   end
+  
+  test "inserts_positioned_correctly" do
+    # first insert one
+    b3 = users(:zol).tasks.create(:title => 'Banana3')
+
+    check_task b3, 1, 1, 1
+    check_task tasks(:banana1), 2, 1, 1
+    check_task tasks(:banana2), 3, 1, 1
+    
+    # then insert more
+    b4 = users(:zol).tasks.create(:title => 'Banana4')
+    
+    # be sure to refresh all the data as we are doing underlying SQL updates
+    tasks(:banana1).reload
+    tasks(:banana2).reload
+    b3.reload
+    b4.reload
+    
+    check_task b4, 1, 1, 1
+    check_task b3, 2, 1, 1
+    check_task tasks(:banana1), 3, 1, 1
+    check_task tasks(:banana2), 4, 1, 1    
+  end
 
   test "reposition_between_quadrants2" do
     # move all bananas to the end of apples
@@ -79,8 +102,8 @@ class TaskTest < ActiveSupport::TestCase
   end    
   
   def check_task(task, position, importance, urgency)
-    assert task.position == position
-    assert task.importance == importance
-    assert task.urgency == urgency
+    assert task.position == position, "Position #{position} incorrect for Task #{task.title}"
+    assert task.importance == importance, "Importance #{importance} incorrect for Task #{task.title}"
+    assert task.urgency == urgency, "Urgency #{importance} incorrect for Task #{task.title}"
   end  
 end
