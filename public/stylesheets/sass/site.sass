@@ -226,10 +226,18 @@ div.quadrant
     :background url(/images/star.png) no-repeat 0 0
     :width 17px
     :height 15px
+    
+.task[data-star=false]
+  .star    
+    :background-position 0 0
     &:hover
       :background-position 0 -37px
       :cursor pointer
+
 .task[data-star=true]
   .star
     :background-position 0 -19px
+    &:hover
+      :background-position 0 -19px
+      :cursor pointer
   

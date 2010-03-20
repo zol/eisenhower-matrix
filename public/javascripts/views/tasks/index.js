@@ -42,6 +42,7 @@
         var newStar = $(this).parent().attr('data-star') == 'false' ? true : false;
         $(this).parent().attr('data-star', newStar);
         $.ajax({type: "PUT", url: "/tasks/" + $(this).parent().attr('data-id'), data: {task: {star: newStar}}});
+        $('body').toggleClass('hack'); // safari hack to force css refresh
       });
     },
     updateQuadrantHeights: function() {
