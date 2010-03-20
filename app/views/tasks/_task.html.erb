@@ -1,7 +1,10 @@
-<li id='task_<%= task.id %>'
+<li class='task'
+    id='task_<%= task.id %>'
     data-id='<%= task.id %>'
+    data-star='<%= task.star %>'
     data-importance='<%= task.importance %>'
     data-urgency='<%= task.urgency %>'>
   <%= check_box_tag 'delete', 1, false, :id => '', :class => 'delete' %>
+  <span class='star'></span>
   <%= task.title %>
 </li>

@@ -36,6 +36,13 @@
         $(this).parent().fadeOut('slow', function(){ $(this).remove(); });
         $.ajax({type: "DELETE", url: "/tasks/" + $(this).parent().attr('data-id')});
       });
+      
+      // add handler for star
+      $('.star').live('click', function(){
+        var newStar = $(this).parent().attr('data-star') == 'false' ? true : false;
+        $(this).parent().attr('data-star', newStar);
+        $.ajax({type: "PUT", url: "/tasks/" + $(this).parent().attr('data-id'), data: {task: {star: newStar}}});
+      });
     },
     updateQuadrantHeights: function() {
       var windowHeight = $(window).height();

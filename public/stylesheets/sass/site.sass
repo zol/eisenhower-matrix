@@ -219,3 +219,17 @@ div.quadrant
       :background-color = !i0_u1_color - !hover_diff
     :bottom 0
     :right 0
+
+.task
+  .star
+    :display inline-block
+    :background url(/images/star.png) no-repeat 0 0
+    :width 17px
+    :height 15px
+    &:hover
+      :background-position 0 -37px
+      :cursor pointer
+.task[data-star=true]
+  .star
+    :background-position 0 -19px
+  
