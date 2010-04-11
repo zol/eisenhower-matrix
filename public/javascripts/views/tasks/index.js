@@ -31,12 +31,20 @@
         $('#new_task .fieldWithErrors input').unwrap();
       }});
       
-      // add handler for delete. fade it out then remove it on server
-      $('.quadrant li .delete').live('click', function(){
+      // add handler for complete. fade it out then remove it on server
+      $('.quadrant li .complete').live('click', function(){
         $(this).parent().fadeOut('slow', function(){ $(this).remove(); });
-        $.ajax({type: "DELETE", url: "/tasks/" + $(this).parent().attr('data-id')});
+        $.ajax({type: "PUT", url: "/tasks/" + $(this).parent().attr('data-id'), 
+          data: {task:{current_state: 'complete'}}});
       });
       
+      // add handler for delete. fade it out then remove it on server
+      $('.quadrant li .actions .delete').live('click', function(ev){
+        ev.preventDefault();        
+        $(this).parent().parent().fadeOut('slow', function(){ $(this).remove(); });
+        $.ajax({type: "DELETE", url: "/tasks/" + $(this).parent().parent().attr('data-id')});
+      });
+            
       // add handler for star
       $('.star').live('click', function(){
         var newStar = $(this).parent().attr('data-star') == 'false' ? true : false;

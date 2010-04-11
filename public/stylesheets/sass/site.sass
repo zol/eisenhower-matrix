@@ -145,14 +145,6 @@ div.quadrant
   :width 50%
   ol
     :overflow-y auto
-    li
-      :background-color = !form_color
-      :border 1px solid rgb(150, 150, 150)
-      :color rgb(85, 85, 85)
-      :margin 5px 5px 5px 5px
-      :padding 5px
-      &:hover
-        :background-color = #82c7e7
 
 #i1_u0.quadrant
   :float left
@@ -221,11 +213,31 @@ div.quadrant
     :right 0
 
 .task
+  :position relative
+  :background-color = !form_color
+  :border 1px solid rgb(150, 150, 150)
+  :color rgb(85, 85, 85)
+  :margin 5px 5px 5px 5px
+  :padding 5px
+  .actions
+    :display none
+  &:hover
+    :background-color = #82c7e7
+    .actions
+      :display block
   .star
     :display inline-block
     :background url(/images/star.png) no-repeat 0 0
     :width 17px
     :height 15px
+  .actions
+    :position absolute
+    :background-color = !form_color
+    :top 0
+    :right 0
+    :bottom 0
+    :-webkit-box-shadow -2px 0px 2px #888
+    :-moz-box-shadow -2px 0px 2px #888    
     
 .task[data-star=false]
   .star    

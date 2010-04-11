@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
-    @tasks = current_user.tasks.all
+    @tasks = current_user.tasks.find_all_by_current_state('active')
     @task = Task.new
 
     respond_to do |format|

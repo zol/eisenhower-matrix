@@ -4,7 +4,11 @@
     data-star='<%= task.star %>'
     data-importance='<%= task.importance %>'
     data-urgency='<%= task.urgency %>'>
-  <%= check_box_tag 'delete', 1, false, :id => '', :class => 'delete' %>
+  <%= check_box_tag 'complete', 1, false, :id => '', :class => 'complete' %>
   <span class='star'></span>
   <%= task.title %>
+  <div class='actions'>
+    <%= link_to 'delete', task_url(task), :class => 'delete' %>    
+    <%= link_to 'edit', edit_task_url(task) %>
+  </div>
 </li>
