@@ -87,7 +87,30 @@ class TaskTest < ActiveSupport::TestCase
     check_durians
   end
   
-  
+  test "delete" do
+    tasks(:apple2).destroy
+    
+    check_task tasks(:apple1), 1, 1, 0
+    # check_task tasks(:apple2), 2, 1, 0
+    check_task tasks(:apple3), 2, 1, 0
+    
+    check_bananas
+    check_carrots
+    check_durians
+  end
+
+  test "make_complete" do
+    tasks(:apple2).update_attributes(:current_state => 'complete')
+    
+    check_task tasks(:apple1), 1, 1, 0
+    # check_task tasks(:apple2), 2, 1, 0
+    check_task tasks(:apple3), 2, 1, 0
+    
+    check_bananas
+    check_carrots
+    check_durians
+  end
+    
   def check_bananas
     check_task tasks(:banana1), 1, 1, 1
     check_task tasks(:banana2), 2, 1, 1    

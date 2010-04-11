@@ -4,7 +4,8 @@ apple1:
   star: false  
   position: 1
   importance: 1
-  urgency: 0  
+  urgency: 0
+  current_state: active
 
 apple2:
   title: Apple2
@@ -13,6 +14,7 @@ apple2:
   position: 2
   importance: 1
   urgency: 0  
+  current_state: active  
 
 apple3:
   title: Apple3
@@ -21,6 +23,7 @@ apple3:
   position: 3
   importance: 1
   urgency: 0  
+  current_state: active  
   
 banana1:
   title: Banana1
@@ -29,6 +32,7 @@ banana1:
   position: 1  
   importance: 1
   urgency: 1
+  current_state: active  
 
 banana2:
   title: Banana2
@@ -37,6 +41,7 @@ banana2:
   position: 2
   importance: 1
   urgency: 1
+  current_state: active  
 
 carrot1:
   title: Carrot1
@@ -45,6 +50,7 @@ carrot1:
   position: 1  
   importance: 0
   urgency: 0  
+  current_state: active  
   
 durian1:
   title: Durian1
@@ -53,3 +59,4 @@ durian1:
   position: 1  
   importance: 0
   urgency: 1
+  current_state: active  
