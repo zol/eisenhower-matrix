@@ -3,12 +3,19 @@
     data-id='<%= task.id %>'
     data-star='<%= task.star %>'
     data-importance='<%= task.importance %>'
-    data-urgency='<%= task.urgency %>'>
-  <%= check_box_tag 'complete', 1, false, :id => '', :class => 'complete' %>
-  <span class='star'></span>
-  <%= task.title %>
-  <div class='actions'>
-    <%= link_to 'delete', task_url(task), :class => 'delete' %>    
-    <%= link_to 'edit', edit_task_url(task) %>
-  </div>
+    data-urgency='<%= task.urgency %>'
+    data-current_state='<%= task.current_state %>'>
+    
+  <% if task.current_state == 'active' %>    
+    <%= check_box_tag 'complete', 1, false, :id => '', :class => 'complete' %>
+    <span class='star'></span>
+    <%= task.title %>
+    <div class='actions'>
+      <%= link_to 'delete', task_url(task), :class => 'delete' %>    
+      <%= link_to 'edit', edit_task_url(task) %>
+    </div>
+  <% else %>
+    <span class='star'></span>
+    <%= task.title %>
+  <% end %>
 </li>

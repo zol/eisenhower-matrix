@@ -221,10 +221,6 @@ div.quadrant
   :padding 5px
   .actions
     :display none
-  &:hover
-    :background-color = #82c7e7
-    .actions
-      :display block
   .star
     :display inline-block
     :background url(/images/star.png) no-repeat 0 0
@@ -237,19 +233,42 @@ div.quadrant
     :right 0
     :bottom 0
     :-webkit-box-shadow -2px 0px 2px #888
-    :-moz-box-shadow -2px 0px 2px #888    
+    :-moz-box-shadow -2px 0px 2px #888
+    
+.task[data-current_state=active]:hover
+  :background-color = #82c7e7
+  .actions
+    :display block
+
+.task[data-current_state=complete][data-importance="0"][data-urgency="0"]
+  :background-color = !i0_u0_color
+    
+.task[data-current_state=complete][data-importance="1"][data-urgency="1"]
+  :background-color = !i1_u1_color
+
+.task[data-current_state=complete][data-importance="0"][data-urgency="1"]
+  :background-color = !i0_u1_color
+
+.task[data-current_state=complete][data-importance="1"][data-urgency="0"]
+  :background-color = !i1_u0_color
+  
+.task[data-current_state=complete][data-importance="1"]
+  :color white
     
 .task[data-star=false]
-  .star    
+  .star
     :background-position 0 0
-    &:hover
-      :background-position 0 -37px
-      :cursor pointer
-
+    
 .task[data-star=true]
   .star
     :background-position 0 -19px
-    &:hover
-      :background-position 0 -19px
-      :cursor pointer
-  
+
+.task[data-star=false][data-current_state=active]
+  .star:hover
+    :background-position 0 -37px
+    :cursor pointer
+        
+.task[data-star=false][data-current_state=active]
+  .star:hover    
+    :background-position 0 -19px
+    :cursor pointer

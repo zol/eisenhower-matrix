@@ -1,0 +1,11 @@
+<ol>
+  <% previous_task = nil %>
+  <% dated_list.each do |task| %>
+    <% if previous_task.nil? or previous_task.updated_at.to_date != task.updated_at.to_date %>
+      <h2><%= readable_date(task.updated_at) %></h2>
+    <% end %>
+    
+    <%= render :partial => 'task', :object => task %>
+    <% previous_task = task %>
+  <% end %>
+</ol>

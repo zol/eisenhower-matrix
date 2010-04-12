@@ -34,4 +34,11 @@ module ApplicationHelper
   def loader_tag
     image_tag 'loader.gif', :id => 'loader'
   end
+  
+  # TODO: make it say 'Today', 'Yesterday', etc
+  def readable_date(date)
+    date.to_date.to_s(:long)
+    # <% dated_list.each do |task| %>
+    #   <h2><%= task.updated_at.to_date.to_s(:long) %> <%=    
+  end
 end

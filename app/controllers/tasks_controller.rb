@@ -105,4 +105,15 @@ class TasksController < ApplicationController
       end
     end
   end
+  
+  # GET /tasks/history
+  # GET /tasks/history.xml
+  def history
+    @tasks = current_user.tasks.find_all_by_current_state('complete')
+
+    respond_to do |format|
+      format.html # history.html.erb
+      format.xml  { render :xml => @tasks }
+    end    
+  end
 end
