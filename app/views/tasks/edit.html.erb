@@ -5,9 +5,9 @@
 
   <p>
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :size => 80 %>
   </p>
-  <p>
+  <!--p>
     <%= f.label :star %><br />
     <%= f.check_box :star %>
   </p>
@@ -22,11 +22,9 @@
   <p>
     <%= f.label :position %><br />
     <%= f.text_field :position %>
-  </p>
+  </p-->
   <p>
+    <%= link_to 'Cancel', tasks_path %>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>

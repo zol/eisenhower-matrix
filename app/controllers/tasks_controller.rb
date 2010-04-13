@@ -76,7 +76,7 @@ class TasksController < ApplicationController
           format.xml  { head :ok }          
         else        
           flash[:notice] = 'Task was successfully updated.'
-          format.html { redirect_to(@task) }
+          format.html { redirect_to(tasks_path) }
           format.xml  { head :ok }
         end
       else
