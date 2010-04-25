@@ -9,7 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100411020148) do
+ActiveRecord::Schema.define(:version => 20100425031854) do
+
+  create_table "labels", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "color",      :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "labels_tasks", :id => false, :force => true do |t|
+    t.integer "label_id", :null => false
+    t.integer "task_id",  :null => false
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

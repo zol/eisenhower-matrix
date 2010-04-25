@@ -3,6 +3,7 @@
   <%= link_to "Sign In", new_user_session_path, :class => current('user_sessions', 'new') %>
 <% else %>
   <%= link_to "Tasks", tasks_path, :class => current('tasks', 'index') %> |
+  <%= link_to "Labels", labels_path, :class => current('labels', 'index') %> |  
   <%= link_to "History", {:controller => 'tasks', :action => 'history'}, :class => current('tasks', 'history') %> |  
   <%= link_to "Logout", user_session_path, :method => :delete, :class => current('user_sessions', 'destroy') %>
 <% end %>

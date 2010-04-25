@@ -1,8 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :tasks, :collection => { :history => :get }
   map.resource  :account, :controller => "users"
   map.resources :users
   map.resource  :user_session
+  map.resources :tasks, :collection => { :history => :get }
+  map.resources :labels
   
   map.root      :controller => "tasks", :action => "index"
   

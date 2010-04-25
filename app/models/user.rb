@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   acts_as_authentic
   
   has_many :tasks, :dependent => :destroy, :order => 'importance, urgency, position'
+  has_many :labels, :dependent => :destroy
   
   validates_associated :tasks
   validates_length_of :invitation_code, :is => 8

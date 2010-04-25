@@ -1,0 +1,11 @@
+<%= form.error_messages %>
+
+<%= form.label :name %>
+<%= form.text_field :name, :autocomplete => "off" %>
+
+<%= form.label :color %>
+<%= form.text_field :color, :autocomplete => "off" %>
+<div class='colorpicker'></div>
+
+<%= form.submit 'Create' %>
+<%= loader_tag %>

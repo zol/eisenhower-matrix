@@ -1,6 +1,8 @@
 class Task < ActiveRecord::Base
   belongs_to :user
   
+  has_and_belongs_to_many :labels
+  
   validates_presence_of :title, :user
   validates_length_of :title, :in => 0..200
   validates_numericality_of :importance, 
