@@ -1,11 +1,10 @@
-<h1>Manage Labels</h1>
-
-<h2>Add</h2>
 <% form_for(@label) do |f| %>
   <%= render :partial => 'form', :locals => {:form => f} %>
 <% end %>
 
-<h2>Delete</h2>
-<div class='labels'>
-  <%= render :partial => 'label', :collection => @labels %>
+<div class='existing_labels'>
+  <h2>Existing Labels</h2>
+  <div class='labels'>
+    <%= render :partial => 'label', :collection => @labels %>
+  </div>
 </div>

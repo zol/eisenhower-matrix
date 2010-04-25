@@ -1,10 +1,12 @@
+<h2>Create Label</h2>
+
 <%= form.error_messages %>
 
 <%= form.label :name %>
 <%= form.text_field :name, :autocomplete => "off" %>
 
 <%= form.label :color %>
-<%= form.text_field :color, :autocomplete => "off" %>
+<%= form.hidden_field :color %>
 <div class='colorpicker'></div>
 
 <%= form.submit 'Create' %>

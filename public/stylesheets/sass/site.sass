@@ -87,7 +87,7 @@ a.shout
   :left 360px
   :font-size 40px
   
-#new_user_session, #new_user, #edit_user, #new_task
+#new_user_session, #new_user, #edit_user, #new_task, #new_label
   +shadow()
   :background-color = !form_color
   :width 240px
@@ -272,3 +272,15 @@ div.quadrant
   .star:hover    
     :background-position 0 -19px
     :cursor pointer
+    
+.label
+  :padding 0 4px 0 4px
+  :margin-right 4px
+    
+body.c_labels.v_index
+  #new_label
+    :margin 10px 0
+    :float left
+  .existing_labels
+    :float left
+    :margin 20px 0 0 20px

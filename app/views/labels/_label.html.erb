@@ -1,6 +1,6 @@
-<div class='label'
-     style='color: <%= label.color %>;'
+<span class='label'
+     style='background-color: <%= label.color %>; color: <%= label_text_color(label.color) %>;'
      id='label_<%= label.id %>' 
      data-id='<%= label.id %>'>
   <%= label.name %>
-</div>
+</span>
