@@ -16,5 +16,6 @@ class CreateLabels < ActiveRecord::Migration
 
   def self.down
     drop_table :labels
+    drop_table :labels_tasks
   end
 end
