@@ -1,0 +1,21 @@
+$base_font_size: 15px;
+
+body {
+  font-size: $base_font_size;
+  font-family: "Lucida Grande", verdana, arial, helvetica, sans-serif; }
+
+h1 {
+  font-size: $base_font_size + 6px;
+  font-weight: bold;
+  padding: 0 0 10px 0; }
+
+h2 {
+  font-size: $base_font_size + 4px;
+  font-weight: bold;
+  padding: 0 0 10px 0; }
+
+a {
+  color: black;
+  &:hover {
+    background-color: black;
+    color: white; } }
