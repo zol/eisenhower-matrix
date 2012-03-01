@@ -1,22 +1,22 @@
 # DRY database.yml
 common: &common
   adapter: mysql
-  username: icyte
-  password: icyte
+  username: eisenhower
+  password: eisenhower
   host: localhost
   encoding: utf8  
 
 development:
   <<: *common
-  database: tavio_dev
+  database: eisenhower_dev
 
 test:
   <<: *common
-  database: tavio_test
+  database: eisenhower_test
 
 production:
   <<: *common
-  database: tavio
+  database: eisenhower
     
 # # SQLite version 3.x
 # #   gem install sqlite3-ruby (not necessary on OS X Leopard)
