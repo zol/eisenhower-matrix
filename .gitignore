@@ -3,3 +3,4 @@ tmp/**/*
 doc/api
 doc/app
 public/stylesheets/*.css
+db/development.sqlite3

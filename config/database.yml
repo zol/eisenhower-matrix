@@ -4,11 +4,14 @@ common: &common
   username: eisenhower
   password: eisenhower
   host: localhost
-  encoding: utf8  
+  encoding: utf8
 
 development:
-  <<: *common
-  database: eisenhower_dev
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+  encoding: utf8
 
 test:
   <<: *common
