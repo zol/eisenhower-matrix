@@ -4,7 +4,7 @@ This is a small rails+jquery app that implements the Eisenhower Matrix - a time 
 
 # Requirements
 
-- Standard Rails 2.3.4 environment.
+- Standard Rails 2.3 environment.
 
 # Using
 
