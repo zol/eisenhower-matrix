@@ -2,7 +2,7 @@
 <%= form.text_field :email %>
 
 <% if form.object.new_record? %>
-  <%= form.label :invitation_code %>
+  <%= form.label :invitation_code, 'Invitation Code (use: 99900000)' %>
   <%= form.text_field :invitation_code %>
 <% end %>
 
