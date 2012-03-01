@@ -4,8 +4,8 @@ Sass::Plugin.options.merge!(
 )
 
 Rails.configuration.middleware.delete('Sass::Plugin::Rack')
-Rails.configuration.middleware.insert_before('Rack::Sendfile', 'Sass::Plugin::Rack')
+Rails.configuration.middleware.insert_before('Rack::Head', 'Sass::Plugin::Rack')
 
-Rails.configuration.middleware.insert_before('Rack::Sendfile', 'Rack::Static',
+Rails.configuration.middleware.insert_before('Rack::Head', 'Rack::Static',
     :urls => ['/stylesheets'],
     :root => "#{Rails.root}/tmp")
